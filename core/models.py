@@ -21,6 +21,9 @@ class Course(models.Model):
             "year",
         )
 
+    def __str__(self):
+        return f"{self.name}, {self.year}"
+
 
 class Grade(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
@@ -28,3 +31,6 @@ class Grade(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(100)]
     )
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.grade}, {self.person}, {self.course}"
