@@ -7,8 +7,8 @@ class Person(models.Model):
     first_name = models.TextField()
     courses = models.ManyToManyField("Course", blank=True)
 
-    class Meta:
-        verbose_name_plural = "People"
+    def __str__(self):
+        return f"{self.last_name}, {self.first_name}"
 
 
 class Course(models.Model):
