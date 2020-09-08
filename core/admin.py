@@ -19,6 +19,11 @@ class PersonAdmin(admin.ModelAdmin):
 
     show_average.short_description = "Average"
 
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        form.base_fields["first_name"].label = "First Name (Humans only!):"
+        return form
+
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
