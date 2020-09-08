@@ -21,6 +21,7 @@ class PersonAdmin(admin.ModelAdmin):
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
     list_display = ("name", "year", "view_students_link")
+    list_filter = ("year",)
 
     def view_students_link(self, obj):
         count = obj.person_set.count()
