@@ -5,7 +5,7 @@ from core.models import Person, Course, Grade
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("last_name", "first_name")
 
 
 @admin.register(Course)
