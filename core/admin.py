@@ -9,6 +9,7 @@ from core.models import Person, Course, Grade
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
+    search_fields = ("last_name__startswith",)
     list_display = ("last_name", "first_name", "show_average")
 
     def show_average(self, obj):
