@@ -11,6 +11,7 @@ from core.models import Person, Course, Grade
 class PersonAdmin(admin.ModelAdmin):
     search_fields = ("last_name__startswith",)
     list_display = ("last_name", "first_name", "show_average")
+    fields = ("first_name", "last_name", "courses")
 
     def show_average(self, obj):
         result = Grade.objects.filter(person=obj).aggregate(Avg("grade"))
