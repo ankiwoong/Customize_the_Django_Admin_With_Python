@@ -7,6 +7,9 @@ from core.models import Person, Course, Grade
 class PersonAdmin(admin.ModelAdmin):
     list_display = ("last_name", "first_name")
 
+    class Meta:
+        ordering = ("last_name", "first_name")
+
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
