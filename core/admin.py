@@ -13,6 +13,8 @@ class PersonAdmin(admin.ModelAdmin):
         result = Grade.objects.filter(person=obj).aggregate(Avg("grade"))
         return result["grade__avg"]
 
+    show_average.short_description = "Average Grade"
+
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
